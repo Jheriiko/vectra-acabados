@@ -5,22 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vectra Acabados | Remodelación y Acabados de Alta Calidad</title>
     <style>
-        :root { --primary: #1e293b; --accent: #25d366; --text: #334155; --bg: #f0fafc; }
+        :root { --primary: #1e293b; --accent: #25d366; --text: #334155; --bg: #f8fafc; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: system-ui, sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
-        header { background: var(--primary); text-align: center; padding: 20px 10px; }
-        header img { max-width: 100%; height: auto; max-height: 150px; border-radius: 8px; }
-        nav { background: #0f172a; padding: 0.8rem; text-align: center; position: sticky; top: 0; z-index: 100; }
-        nav a { color: #94a3b8; text-decoration: none; margin: 0 10px; font-weight: bold; }
+        body { font-family: system-ui, -apple-system, sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+        header { background: var(--primary); text-align: center; padding: 25px 10px; }
+        header img { max-width: 100%; height: auto; max-height: 140px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+        nav { background: #0f172a; padding: 0.8rem; text-align: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        nav a { color: #94a3b8; text-decoration: none; margin: 0 12px; font-weight: bold; font-size: 0.95rem; }
         nav a:hover { color: white; }
-        .container { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
-        .card { background: white; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-        h2 { color: var(--primary); margin-bottom: 0.8rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.3rem; }
+        .container { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+        .card { background: white; padding: 1.8rem; border-radius: 12px; margin-bottom: 1.8rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        h2 { color: var(--primary); margin-bottom: 1rem; border-bottom: 3px solid #e2e8f0; padding-bottom: 0.4rem; font-size: 1.4rem; }
         ul.services-list { list-style: none; padding-left: 0; }
-        ul.services-list li { padding: 0.5rem 0; border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; }
-        ul.services-list li::before { content: '✔'; color: var(--accent); margin-right: 10px; font-weight: bold; }
-        .btn-ws { display: inline-block; background: #25D366; color: white; padding: 0.8rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: bold; margin-top: 10rem; }
-        .btn-ws:hover { background: #128C7E; }
+        ul.services-list li { padding: 0.7rem 0; border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; font-size: 1.05rem; }
+        ul.services-list li::before { content: '✔'; color: var(--accent); margin-right: 12px; font-weight: bold; font-size: 1.1rem; }
+        
+        /* Galería Grid */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 1rem; }
+        .gallery-item { background: #f1f5f9; border-radius: 8px; padding: 25px 15px; text-align: center; font-weight: bold; color: #475569; border: 1px dashed #cbd5e1; }
+        
+        /* Formulario */
+        .form-group { margin-bottom: 1rem; }
+        .form-group label { display: block; margin-bottom: 0.4rem; font-weight: bold; font-size: 0.9rem; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.8rem; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 1rem; }
+        .btn-submit { background: var(--primary); color: white; border: none; padding: 0.9rem 1.5rem; border-radius: 6px; font-weight: bold; cursor: pointer; width: 100%; font-size: 1rem; }
+        .btn-submit:hover { background: #0f172a; }
+
+        /* Mapa */
+        .map-container { width: 100%; height: 280px; border-radius: 8px; overflow: hidden; margin-top: 1rem; }
+        .map-container iframe { width: 100%; height: 100%; border: 0; }
+
+        /* Botón Flotante de WhatsApp */
+        .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background-color: #25d366; color: white; border-radius: 50px; padding: 12px 20px; font-size: 16px; font-weight: bold; text-decoration: none; box-shadow: 2px 5px 10px rgba(0,0,0,0.3); z-index: 1000; display: flex; align-items: center; gap: 8px; }
+        .whatsapp-float:hover { background-color: #128c7e; }
+
         footer { text-align: center; padding: 1.5rem; background: var(--primary); color: #94a3b8; font-size: 0.85rem; margin-top: 2rem; }
     </style>
 </head>
@@ -31,35 +49,90 @@
     <nav>
         <a href="#acerca">Nosotros</a>
         <a href="#servicios">Servicios</a>
+        <a href="#galeria">Proyectos</a>
+        <a href="#cotizar">Cotizar</a>
         <a href="#ubicacion">Ubicación</a>
-        <a href="#contacto">Contacto</a>
     </nav>
     <div class="container">
         <section id="acerca" class="card">
             <h2>Acerca de la Empresa</h2>
-            <p>En Vectra Acabados nos especializamos en transformar y optimizar sus espacios a través de servicios integrales de remodelación en Popayán y Pasto. Ofrecemos soluciones profesionales en remodelación de baños, cocinas, instalación de pisos, pintura y trabajos de adecuación para hogares y negocios.</p>
+            <p>En <strong>Vectra Acabados</strong> nos especializamos en transformar y optimizar sus espacios a través de servicios integrales de remodelación en Popayán y Pasto. Ofrecemos soluciones profesionales en remodelación de baños, cocinas, instalación de pisos, pintura y adecuaciones para hogares y negocios.</p>
         </section>
+
         <section id="servicios" class="card">
             <h2>Nuestros Servicios</h2>
             <ul class="services-list">
-                <li>Remodelación integral de baños y cocinas</li>
-                <li>Instalación de pisos, cerámica y porcelanato</li>
-                <li>Pintura profesional y adecuación de interiores</li>
+                <li>Remodelación integral de baños y cocinas modernas</li>
+                <li>Instalación de pisos, cerámica, porcelanato y laminados</li>
+                <li>Pintura profesional, estuco y estucado de interiores/exteriores</li>
+                <li>Diseño y ejecución de acabados arquitectónicos de alta calidad</li>
             </ul>
         </section>
+
+        <section id="galeria" class="card">
+            <h2>Portafolio de Proyectos</h2>
+            <p>Especialistas en acabados de alta gama:</p>
+            <div class="gallery-grid">
+                <div class="gallery-item">🛁 Remodelación de Baños</div>
+                <div class="gallery-item">🍳 Cocinas Integrales</div>
+                <div class="gallery-item">🏢 Inst. Porcelanato</div>
+                <div class="gallery-item">🎨 Pintura & Acabados</div>
+            </div>
+        </section>
+
+        <section id="cotizar" class="card">
+            <h2>Solicitar Cotización Rápida</h2>
+            <form onsubmit="sendToWhatsapp(event)">
+                <div class="form-group">
+                    <label>Nombre Completo:</label>
+                    <input type="text" id="nombre" placeholder="Ej. Juan Pérez" required>
+                </div>
+                <div class="form-group">
+                    <label>Servicio Requerido:</label>
+                    <select id="servicio_req">
+                        <option>Remodelación de Baño</option>
+                        <option>Remodelación de Cocina</option>
+                        <option>Instalación de Pisos / Porcelanato</option>
+                        <option>Pintura y Adecuaciones</option>
+                        <option>Otro proyecto</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Detalles del trabajo / Ciudad:</label>
+                    <textarea id="detalles" rows="3" placeholder="Indica la ciudad (Popayán o Pasto) y detalles del espacio..." required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Enviar Solicitud a WhatsApp 📱</button>
+            </form>
+        </section>
+
         <section id="ubicacion" class="card">
             <h2>Ubicación y Cobertura</h2>
-            <p><strong>Ubicación de la Empresa:</strong> Carrera 17 D #57an21 Casa, Popayán, Cauca</p>
-            <p><strong>Áreas de servicio:</strong> Popayán (Cauca) y Pasto (Nariño), Colombia</p>
-        </section>
-        <section id="contacto" class="card" style="text-align: center;">
-            <h2>Contacto Comercial</h2>
-            <p>Teléfono / WhatsApp: +57 302 1211347</p>
-            <a href="https://wa.me/573021211347" class="btn-ws" target="_blank">💬 Contactar por WhatsApp</a>
+            <p><strong>Dirección:</strong> Carrera 17 D #57an21 Casa, Popayán, Cauca</p>
+            <p><strong>Áreas de cobertura:</strong> Popayán (Cauca) y Pasto (Nariño), Colombia</p>
+            <div class="map-container">
+                <iframe src="https://maps.google.com/maps?q=Carrera%2017%20D%20%2357an21%20Casa,%20Popay%C3%A1n,%20Cauca&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+            </div>
         </section>
     </div>
+
+    < Botón Flotante WhatsApp -->    <a href="https://wa.me/573021211347?text=Hola,%20quisiera%20recibir%20informaci%C3%B3n%20sobre%20sus%20servicios%20de%20remodelaci%C3%B3n" class="whatsapp-float" target="_blank">
+        💬 WhatsApp
+    </a>
+
     <footer>
         <p>&copy; 2026 Vectra Acabados. Todos los derechos reservados.</p>
     </footer>
+
+    <script>
+        function sendToWhatsapp(e) {
+            e.preventDefault();
+            const nombre = document.getElementById('nombre').value;
+            const servicio = document.getElementById('servicio_req').value;
+            const detalles = document.getElementById('detalles').value;
+            const texto = `Hola Vectra Acabados, mi nombre es ${nombre}. Deseo cotizar: ${servicio}. Detalles: ${detalles}`;
+            const url = `https://wa.me/573021211347?text=${encodeURIComponent(texto)}`;
+            window.open(url, '_blank');
+        }
+    </script>
 </body>
 </html>
