@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vectra Plomería & Acabados | Ingeniería & Soluciones Locativas en Pasto</title>
+    <title>Vectra Plomería & Acabados | Ingeniería & Soluciones en Pasto</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -16,151 +16,234 @@
             --accent: #f59e0b;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --border: #1e293b;
+            --border: rgba(255, 255, 255, 0.1);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: "Plus Jakarta Sans", sans-serif; background-color: var(--bg-main); color: var(--text-main); line-height: 1.6; }
 
+        /* HERO HEADER CON IMAGEN DE FONDO */
         header {
-            background: linear-gradient(135deg, #0b0f17 0%, #1e293b 100%);
-            border-bottom: 1px solid var(--border);
-            padding: 3.5rem 1.5rem 3rem;
-            text-align: center;
             position: relative;
+            background: linear-gradient(180deg, rgba(11, 15, 23, 0.75) 0%, rgba(11, 15, 23, 0.95) 100%),
+                        url("https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+            padding: 5rem 1.5rem 4rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
         }
 
         .badge {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: rgba(56, 189, 248, 0.1);
+            background: rgba(56, 189, 248, 0.15);
             color: var(--primary-glow);
-            border: 1px solid rgba(56, 189, 248, 0.2);
-            padding: 0.4rem 1rem;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            padding: 0.5rem 1.2rem;
             border-radius: 50px;
             font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
+            backdrop-filter: blur(8px);
         }
 
-        h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 0.8rem; background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        header p { color: var(--text-muted); font-size: 1.15rem; max-width: 650px; margin: 0 auto; font-weight: 400; }
+        h1 { 
+            font-size: 2.8rem; 
+            font-weight: 800; 
+            letter-spacing: -0.8px; 
+            margin-bottom: 1rem; 
+            color: #ffffff;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
 
-        .container { max-width: 1050px; margin: 0 auto; padding: 3rem 1.5rem; }
+        header p { 
+            color: #cbd5e1; 
+            font-size: 1.2rem; 
+            max-width: 720px; 
+            margin: 0 auto 2rem; 
+            font-weight: 400; 
+        }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem; }
+        .btn-main {
+            display: inline-block;
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            color: #fff;
+            font-weight: 700;
+            padding: 1rem 2.2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4);
+            transition: all 0.3s ease;
+        }
+        .btn-main:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(2, 132, 199, 0.6); }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 4rem 1.5rem; }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-title h2 { font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+        .section-title p { color: var(--text-muted); font-size: 1rem; }
+
+        /* GRID DE TARJETAS CON IMÁGENES */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 4rem; }
 
         .card {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: transform 0.2s, border-color 0.2s;
+            border-radius: 18px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
-        .card:hover { transform: translateY(-3px); border-color: var(--primary); }
+        .card:hover { 
+            transform: translateY(-6px); 
+            border-color: var(--primary-glow); 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
 
-        .card h3 { color: var(--primary-glow); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
-        .card p { color: var(--text-muted); font-size: 0.95rem; }
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
 
-        .services-list { list-style: none; margin-top: 1rem; }
+        .card-body { padding: 1.8rem; }
+        .card-body h3 { color: #fff; font-size: 1.3rem; font-weight: 700; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
+        .card-body p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.2rem; }
+
+        .services-list { list-style: none; }
         .services-list li {
-            padding: 0.6rem 0;
+            padding: 0.5rem 0;
             border-bottom: 1px dashed var(--border);
             color: var(--text-main);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
         }
         .services-list li:last-child { border-bottom: none; }
         .services-list li::before { content: "✓"; color: var(--primary-glow); font-weight: bold; }
 
+        /* SECCIÓN UBICACIÓN Y CONTACTO */
         .location-section {
-            background: linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(15, 23, 42, 0.4) 100%);
-            border: 1px solid rgba(2, 132, 199, 0.25);
-            border-radius: 16px;
-            padding: 2.5rem 2rem;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.9) 100%),
+                        url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80") center/cover no-repeat;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 3.5rem 2rem;
             text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
-        .location-section h2 { font-size: 1.6rem; color: #fff; margin-bottom: 1rem; }
-        .location-info { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-top: 1.5rem; }
+        .location-section h2 { font-size: 1.8rem; color: #fff; margin-bottom: 1rem; }
+        .location-info { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.2rem; margin: 2rem 0; }
+        
         .info-pill {
-            background: var(--bg-card);
+            background: rgba(15, 28, 40, 0.85);
             border: 1px solid var(--border);
-            padding: 0.8rem 1.2rem;
-            border-radius: 10px;
+            padding: 0.9rem 1.4rem;
+            border-radius: 12px;
             font-size: 0.95rem;
             color: var(--text-main);
+            backdrop-filter: blur(10px);
         }
 
-        .cta-box { margin-top: 2rem; }
         .btn-whatsapp {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
             background: #25d366;
             color: #000;
-            font-weight: 700;
-            padding: 0.9rem 2rem;
-            border-radius: 10px;
+            font-weight: 800;
+            padding: 1rem 2.2rem;
+            border-radius: 12px;
             text-decoration: none;
-            transition: opacity 0.2s;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
         }
-        .btn-whatsapp:hover { opacity: 0.9; }
+        .btn-whatsapp:hover { transform: scale(1.03); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5); }
 
-        footer { text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 3rem; }
+        footer { text-align: center; padding: 2.5rem 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 4rem; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="badge">📍 Servicio Oficial • Pasto, Nariño</div>
+        <div class="badge">📍 Cobertura Oficial en Pasto, Nariño</div>
         <h1>Vectra Plomería & Acabados</h1>
-        <p>Arquitectura de soluciones técnicas, redes hidrosanitarias, acabados de alta gama y remodelación integral a domicilio.</p>
+        <p>Soluciones de ingeniería hidrosanitaria, instalación de acabados de alta gama y mantenimiento técnico integral a domicilio.</p>
+        <a href="https://wa.me/573018593190?text=Hola,%20deseo%20solicitar%20un%20servicio%20técnico" class="btn-main" target="_blank">Contactar a un Técnico</a>
     </header>
 
     <div class="container">
+        <div class="section-title">
+            <h2>Nuestra Gama de Servicios Especializados</h2>
+            <p>Atención directa a hogares, comercios y empresas con estándares de alta calidad</p>
+        </div>
+
         <div class="grid">
+            <!-- TARJETA 1 -->
             <div class="card">
-                <h3>💧 Plomería & Hidrosanitaria</h3>
-                <p>Especialistas en detección técnica de fugas, mantenimiento preventivo/correctivo y montaje de redes de agua potable y sanitaria.</p>
-                <ul class="services-list">
-                    <li>Detección e inspección de fugas</li>
-                    <li>Instalación y reparación de tuberías</li>
-                    <li>Mantenimiento de grifería y sanitarios</li>
-                    <li>Destape y limpieza técnica de desagrūes</li>
-                </ul>
+                <img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=600&q=80" alt="Plomería e Hidrosanitaria" class="card-img">
+                <div class="card-body">
+                    <h3>💧 Plomería e Hidrosanitaria</h3>
+                    <p>Mantenimiento y corrección especializada en redes de agua potable y residuales.</p>
+                    <ul class="services-list">
+                        <li>Detección técnica de fugas invisibles</li>
+                        <li>Instalación y reparación de tuberías PVC/CPVC</li>
+                        <li>Montaje y mantenimiento de griferías</li>
+                        <li>Destape y sondeo de desagrūes</li>
+                    </ul>
+                </div>
             </div>
 
+            <!-- TARJETA 2 -->
             <div class="card">
-                <h3>🏗️ Acabados & Remodelación</h3>
-                <p>Ejecución precisa para la transformación de ambientes residenciales y comerciales con acabados de alta durabilidad.</p>
-                <ul class="services-list">
-                    <li>Instalación de cerámica y porcelanato</li>
-                    <li>Enchapes finos y pulido de detalles</li>
-                    <li>Empastado y pintura de interiores/exteriores</li>
-                    <li>Adecuación y remodelación de baños y cocinas</li>
-                </ul>
+                <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=600&q=80" alt="Acabados y Porcelanato" class="card-img">
+                <div class="card-body">
+                    <h3>🛠️ Acabados & Porcelanato</h3>
+                    <p>Instalación y remodelación estética con acabados duraderos e impecables.</p>
+                    <ul class="services-list">
+                        <li>Instalación de porcelanato y cerámica</li>
+                        <li>Enchapes para baños y cocinas</li>
+                        <li>Empastados y pintura arquitectónica</li>
+                        <li>Pulido y adecuación de detalles</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- TARJETA 3 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80" alt="Remodelación Locativa" class="card-img">
+                <div class="card-body">
+                    <h3>🏗️ Mantenimiento Locativo</h3>
+                    <p>Transformación e intervención preventiva/correctiva de espacios en Pasto.</p>
+                    <ul class="services-list">
+                        <li>Remodelación de espacios residenciales</li>
+                        <li>Impermeabilización y tratamiento de humedad</li>
+                        <li>Reparación de grietas y mampostería</li>
+                        <li>Asesoría e inspección técnica inicial</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
         <div class="location-section">
-            <h2>Operación & Cobertura Directa</h2>
-            <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto;">Prestamos asistencia técnica especializada directamente a domicilio en toda la zona urbana y metropolitana de Pasto.</p>
+            <h2>Base Operativa y Atención a Domicilio</h2>
+            <p style="color: var(--text-muted); max-width: 650px; margin: 0 auto;">Nos desplazamos con equipamiento técnico directamente a tu ubicación para brindar soluciones eficientes y garantizadas.</p>
             
             <div class="location-info">
-                <div class="info-pill">📍 <strong>Base Operativa:</strong> Cra. 12b Este #173, Pasto, Nariño, Colombia</div>
-                <div class="info-pill">🚗 <strong>Modalidad:</strong> Atención Técnica a Domicilio</div>
-                <div class="info-pill">⏱️ <strong>Disponibilidad:</strong> Lunes a Sábado - Proyectos y Emergencias</div>
+                <div class="info-pill">📍 <strong>Base Física:</strong> Cra. 12b Este #173, Pasto, Nariño</div>
+                <div class="info-pill">🚗 <strong>Cobertura:</strong> Pasto y áreas metropolitanas</div>
+                <div class="info-pill">📱 <strong>Atención WhatsApp:</strong> 301 859 3190</div>
             </div>
 
-            <div class="cta-box">
-                <a href="https://wa.me/573018593190?text=Hola,%20deseo%20solicitar%20una%20cotización%20de%20servicios" class="btn-whatsapp" target="_blank">
-                    📲 Solicitar Cotización Directa
-                </a>
-            </div>
+            <a href="https://wa.me/573018593190?text=Hola,%20solicito%20cotización%20para%20un%20proyecto" class="btn-whatsapp" target="_blank">
+                💬 Solicitar Cotización por WhatsApp
+            </a>
         </div>
     </div>
 
