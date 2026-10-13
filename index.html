@@ -3,47 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vectra Plomería & Acabados | Pasto</title>
+    <title>Vectra Plomería & Acabados | Ingeniería & Soluciones Locativas en Pasto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f6f8; color: #333; }
-        header { background-color: #0f172a; color: #fff; padding: 2rem 1rem; text-align: center; }
-        header h1 { margin: 0; font-size: 2.2rem; color: #38bdf8; }
-        header p { margin: 0.5rem 0 0; font-size: 1.1rem; color: #cbd5e1; }
-        .container { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
-        .card { background: #fff; padding: 2rem; margin-bottom: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .card h2 { color: #0f172a; border-bottom: 2px solid #38bdf8; padding-bottom: 0.5rem; margin-top: 0; }
-        ul { padding-left: 1.5rem; line-height: 1.8; }
-        .contact-info { background: #e0f2fe; border-left: 4px solid #0284c7; padding: 1rem; margin-top: 1rem; border-radius: 4px; }
-        footer { text-align: center; padding: 1.5rem; color: #64748b; font-size: 0.9rem; }
+        :root {
+            --bg-main: #0b0f17;
+            --bg-card: #151c28;
+            --primary: #0284c7;
+            --primary-glow: #38bdf8;
+            --accent: #f59e0b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #1e293b;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: "Plus Jakarta Sans", sans-serif; background-color: var(--bg-main); color: var(--text-main); line-height: 1.6; }
+
+        header {
+            background: linear-gradient(135deg, #0b0f17 0%, #1e293b 100%);
+            border-bottom: 1px solid var(--border);
+            padding: 3.5rem 1.5rem 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--primary-glow);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 0.8rem; background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        header p { color: var(--text-muted); font-size: 1.15rem; max-width: 650px; margin: 0 auto; font-weight: 400; }
+
+        .container { max-width: 1050px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem; }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .card:hover { transform: translateY(-3px); border-color: var(--primary); }
+
+        .card h3 { color: var(--primary-glow); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
+        .card p { color: var(--text-muted); font-size: 0.95rem; }
+
+        .services-list { list-style: none; margin-top: 1rem; }
+        .services-list li {
+            padding: 0.6rem 0;
+            border-bottom: 1px dashed var(--border);
+            color: var(--text-main);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .services-list li:last-child { border-bottom: none; }
+        .services-list li::before { content: "✓"; color: var(--primary-glow); font-weight: bold; }
+
+        .location-section {
+            background: linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(15, 23, 42, 0.4) 100%);
+            border: 1px solid rgba(2, 132, 199, 0.25);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+
+        .location-section h2 { font-size: 1.6rem; color: #fff; margin-bottom: 1rem; }
+        .location-info { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-top: 1.5rem; }
+        .info-pill {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 0.8rem 1.2rem;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        .cta-box { margin-top: 2rem; }
+        .btn-whatsapp {
+            display: inline-block;
+            background: #25d366;
+            color: #000;
+            font-weight: 700;
+            padding: 0.9rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .btn-whatsapp:hover { opacity: 0.9; }
+
+        footer { text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 3rem; }
     </style>
 </head>
 <body>
+
     <header>
+        <div class="badge">📍 Servicio Oficial • Pasto, Nariño</div>
         <h1>Vectra Plomería & Acabados</h1>
-        <p>Servicios profesionales de plomería, mantenimiento y remodelaciones en Pasto</p>
+        <p>Arquitectura de soluciones técnicas, redes hidrosanitarias, acabados de alta gama y remodelación integral a domicilio.</p>
     </header>
+
     <div class="container">
-        <div class="card">
-            <h2>Nuestros Servicios</h2>
-            <p>Ofrecemos soluciones técnicas especializadas para hogares, oficinas y locales comerciales:</p>
-            <ul>
-                <li><strong>Plomería General:</strong> Detección de fugas, destape de tuberías, instalación y reparación de redes hidrosanitarias.</li>
-                <li><strong>Remodelaciones y Acabados:</strong> Instalación de cerámica, porcelanato, enchapes y pisos.</li>
-                <li><strong>Pintura y Empastados:</strong> Preparación de superficies, acabados finos en muros y pintura arquitectónica.</li>
-                <li><strong>Reparaciones Locativas:</strong> Mantenimiento general preventivo y correctivo para construcciones.</li>
-            </ul>
+        <div class="grid">
+            <div class="card">
+                <h3>💧 Plomería & Hidrosanitaria</h3>
+                <p>Especialistas en detección técnica de fugas, mantenimiento preventivo/correctivo y montaje de redes de agua potable y sanitaria.</p>
+                <ul class="services-list">
+                    <li>Detección e inspección de fugas</li>
+                    <li>Instalación y reparación de tuberías</li>
+                    <li>Mantenimiento de grifería y sanitarios</li>
+                    <li>Destape y limpieza técnica de desagrūes</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>🏗️ Acabados & Remodelación</h3>
+                <p>Ejecución precisa para la transformación de ambientes residenciales y comerciales con acabados de alta durabilidad.</p>
+                <ul class="services-list">
+                    <li>Instalación de cerámica y porcelanato</li>
+                    <li>Enchapes finos y pulido de detalles</li>
+                    <li>Empastado y pintura de interiores/exteriores</li>
+                    <li>Adecuación y remodelación de baños y cocinas</li>
+                </ul>
+            </div>
         </div>
-        <div class="card">
-            <h2>Área de Cobertura y Atención</h2>
-            <p>Operamos bajo la modalidad de <strong>servicio a domicilio</strong>, desplazándonos directamente al lugar del proyecto para mayor comodidad de nuestros clientes.</p>
-            <div class="contact-info">
-                <p>📍 <strong>Dirección de Oficina / Base:</strong> Cra. 12b Este #173, Pasto, Nariño, Colombia</p>
-                <p>🏙️ <strong>Ciudad de operación:</strong> San Juan de Pasto y zonas aledañas en Nariño.</p>
+
+        <div class="location-section">
+            <h2>Operación & Cobertura Directa</h2>
+            <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto;">Prestamos asistencia técnica especializada directamente a domicilio en toda la zona urbana y metropolitana de Pasto.</p>
+            
+            <div class="location-info">
+                <div class="info-pill">📍 <strong>Base Operativa:</strong> Cra. 12b Este #173, Pasto, Nariño, Colombia</div>
+                <div class="info-pill">🚗 <strong>Modalidad:</strong> Atención Técnica a Domicilio</div>
+                <div class="info-pill">⏱️ <strong>Disponibilidad:</strong> Lunes a Sábado - Proyectos y Emergencias</div>
+            </div>
+
+            <div class="cta-box">
+                <a href="https://wa.me/573018593190?text=Hola,%20deseo%20solicitar%20una%20cotización%20de%20servicios" class="btn-whatsapp" target="_blank">
+                    📲 Solicitar Cotización Directa
+                </a>
             </div>
         </div>
     </div>
+
     <footer>
-        <p>&copy; 2026 Vectra Plomería & Acabados. Todos los derechos reservados.</p>
+        <p>&copy; 2026 Vectra Plomería & Acabados. Todos los derechos reservados. | San Juan de Pasto, Colombia</p>
     </footer>
+
 </body>
 </html>
